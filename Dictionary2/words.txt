@@ -1,0 +1,2 @@
+hi=zdrasti=haj
+bye=chao=bai

@@ -18,6 +18,8 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormSpecs;
 import com.jgoodies.forms.layout.RowSpec;
+import java.awt.Scrollbar;
+import javax.swing.JTable;
 
 public class test extends JFrame implements ActionListener {
 
@@ -31,6 +33,7 @@ public class test extends JFrame implements ActionListener {
 	ImageIcon sellButtonPic = new ImageIcon("img/sell.png");
 	ImageIcon listButtonPic = new ImageIcon("img/list.png");
 	ImageIcon searchButtonPic = new ImageIcon("img/search.png");
+	private JTable table;
 	
 	public test() {
 		createUI();
@@ -60,6 +63,15 @@ public class test extends JFrame implements ActionListener {
 		search.setIcon(searchButtonPic);
 		search.addActionListener(this);
 		getContentPane().add(search);
+		
+		Scrollbar scrollbar = new Scrollbar();
+		scrollbar.setBounds(435, 22, 27, 279);
+		getContentPane().add(scrollbar);
+		
+		table = new JTable();
+		table.setForeground(Color.WHITE);
+		table.setBounds(435, 24, -223, 277);
+		getContentPane().add(table);
 
 	}
 
