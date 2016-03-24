@@ -3,7 +3,7 @@ package Pragmatic.Project.BookStore;
 public class demo {
 
 	public static void main(String[] args) {
-		Book b1 = new Book("title", "author", "5.2", "publisher", "foreign", "5");
+		Book b1 = new Book("title", "author", 5.2, "publisher", "foreign", 5);
 
 
 	

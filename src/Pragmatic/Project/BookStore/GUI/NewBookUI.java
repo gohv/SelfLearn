@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import Pragmatic.Project.BookStore.Book;
@@ -148,7 +149,15 @@ public class NewBookUI extends JFrame implements ActionListener {
 	}
 	
 	public void createBook(){
-	 Book b = new Book(titleField.getText(), authorField.getText(), priceField.getText(),
-			 publisherField.getText(), originField.getText(), stockField.getText());
+		try{
+			int price = Integer.parseInt(priceField.getText());
+			int stock = Integer.parseInt(stockField.getText());
+			
+	 Book b = new Book(titleField.getText(), authorField.getText(), price,
+			 publisherField.getText(), originField.getText(), stock);
+	 
+	 }catch (NumberFormatException e){
+		 JOptionPane.showMessageDialog(null, "Please check Stock Field and Price Field", "ERROR", JOptionPane.ERROR_MESSAGE);
+	 }
 	 }
 }
