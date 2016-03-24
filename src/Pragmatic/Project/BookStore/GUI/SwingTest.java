@@ -90,11 +90,15 @@ public class SwingTest extends JFrame implements ActionListener {
 
 	}
 	public void search(){
-		JOptionPane.showInputDialog(null, "Search", "TEST", JOptionPane.INFORMATION_MESSAGE);
-
+	SearchUI searchUI = new SearchUI();
+	searchUI.setVisible(true);
+		
+		
 	}
-	
-
-	
-
 }
+
+	
+
+	
+
+

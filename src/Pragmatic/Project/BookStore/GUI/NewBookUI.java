@@ -1,5 +1,6 @@
 package Pragmatic.Project.BookStore.GUI;
 
+import java.awt.Dialog;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import Pragmatic.Project.BookStore.Book;
+import Pragmatic.Project.BookStore.Bookstore;
 
 public class NewBookUI extends JFrame implements ActionListener {
 
@@ -103,8 +105,8 @@ public class NewBookUI extends JFrame implements ActionListener {
 		// buttons setting
 		addButton.setBounds(62, 323, 100, 30);
 		addButton.addActionListener(this);
-		add(addButton);	
-		
+		add(addButton);
+
 		cancelButton.setBounds(180, 323, 100, 30);
 		cancelButton.addActionListener(this);
 		add(cancelButton);
@@ -143,21 +145,25 @@ public class NewBookUI extends JFrame implements ActionListener {
 			dispose();
 		} else if (source == addButton) {
 			createBook();
-			dispose();
 
 		}
 	}
-	
-	public void createBook(){
-		try{
+
+	public void createBook() {
+
+		try {
 			int price = Integer.parseInt(priceField.getText());
 			int stock = Integer.parseInt(stockField.getText());
-			
-	 Book b = new Book(titleField.getText(), authorField.getText(), price,
-			 publisherField.getText(), originField.getText(), stock);
-	 
-	 }catch (NumberFormatException e){
-		 JOptionPane.showMessageDialog(null, "Please check Stock Field and Price Field", "ERROR", JOptionPane.ERROR_MESSAGE);
-	 }
-	 }
+
+			Book b = new Book(titleField.getText(), authorField.getText(), price, publisherField.getText(),
+					originField.getText(), stock);
+			dispose();
+		} catch (NumberFormatException e) {
+
+			JOptionPane.showMessageDialog(cancelButton, "Please check Stock Field and Price Field", "ERROR",
+					JOptionPane.ERROR_MESSAGE);
+
+		}
+	}
+
 }

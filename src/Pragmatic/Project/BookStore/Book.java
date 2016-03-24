@@ -69,5 +69,7 @@ public class Book {
 	public void setStock(int newStock) {
 		this.stock = newStock;
 	}
+	
+
 
 }
