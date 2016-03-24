@@ -6,13 +6,13 @@ public class Book {
 	private UUID id;
 	private String title;
 	private String author;
-	private double price;
+	private String price;
 	private String publisher;
 	private String origin;
-	private int stock;
+	private String stock;
 
-	public Book(String title, String author, double price, String publisher,
-			String foreign, int stock) {
+	public Book(String title, String author, String price, String publisher,
+			String foreign, String stock) {
 		this.id = UUID.randomUUID();
 		this.title = title;
 		this.author = author;
@@ -38,11 +38,11 @@ public class Book {
 		this.author = newAuthor;
 	}
 
-	public double getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setPrice(double newPrice) {
+	public void setPrice(String newPrice) {
 		this.price = newPrice;
 	}
 
@@ -62,11 +62,11 @@ public class Book {
 		this.origin = newOrigin;
 	}
 
-	public int getStock() {
+	public String getStock() {
 		return stock;
 	}
 
-	public void setStock(int newStock) {
+	public void setStock(String newStock) {
 		this.stock = newStock;
 	}
 

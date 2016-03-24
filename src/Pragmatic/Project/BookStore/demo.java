@@ -3,17 +3,13 @@ package Pragmatic.Project.BookStore;
 public class demo {
 
 	public static void main(String[] args) {
-		Book b1 = new Book("title", "author", 5.20, "publisher", "foreign", 5);
-		Book b2 = new Book("Java", "Az", 6.20, "Home", "Not Foreing", 5);
-		Book b3 = new Book("Java1", "Az", 6.20, "Home", "Not Foreing", 5);
-		Book b4 = new Book("Java2", "Az", 6.20, "Home", "Not Foreing", 5);
+		Book b1 = new Book("title", "author", "5.2", "publisher", "foreign", "5");
+
 
 	
 		System.out.println(b1.getAuthor());
 		Bookstore bstore = new Bookstore();
-		bstore.addBook(b2);
-		bstore.addBook(b3);
-		bstore.addBook(b4);
+	
 		bstore.addBook(b1);
 		bstore.listBooksAndStockCount();
 

@@ -8,13 +8,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
+import Pragmatic.Project.BookStore.Book;
 
 public class NewBookUI extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
 	// LABEL VARS
-	private JLabel labelName = new JLabel("Name ");
+	private JLabel labelName = new JLabel("Title ");
 	private JLabel labelAuthor = new JLabel("Author ");
 	private JLabel labelPrice = new JLabel("Price ");
 	private JLabel labelPublisher = new JLabel("Publisher ");
@@ -23,7 +24,7 @@ public class NewBookUI extends JFrame implements ActionListener {
 	// END OF LABEL VARS
 
 	// FIELD VARS
-	private JTextField nameField = new JTextField();
+	private JTextField titleField = new JTextField();
 	private JTextField authorField = new JTextField();
 	private JTextField priceField = new JTextField();
 	private JTextField publisherField = new JTextField();
@@ -80,8 +81,8 @@ public class NewBookUI extends JFrame implements ActionListener {
 		add(labelStock);
 
 		// field setting:
-		nameField.setBounds(100, 20, 150, 30);
-		add(nameField);
+		titleField.setBounds(100, 20, 150, 30);
+		add(titleField);
 
 		authorField.setBounds(100, 78, 150, 30);
 		add(authorField);
@@ -100,42 +101,54 @@ public class NewBookUI extends JFrame implements ActionListener {
 
 		// buttons setting
 		addButton.setBounds(62, 323, 100, 30);
-		add(addButton);
-
+		addButton.addActionListener(this);
+		add(addButton);	
+		
 		cancelButton.setBounds(180, 323, 100, 30);
+		cancelButton.addActionListener(this);
 		add(cancelButton);
 		// separator
 
-	    JSeparator separator = new JSeparator();
-	    separator.setBounds(110, 63, 1, 2);
-	    add(separator);
-	    separator_1.setBounds(12, 63, 289, 2);
-	    
-	    add(separator_1);
-	    separator_2.setBounds(12, 118, 394, 2);
-	    
-	    add(separator_2);
-	    separator_3.setBounds(12, 173, 288, -8);
-	    
-	    add(separator_3);
-	    separator_4.setBounds(7, 178, 293, -8);
-	    
-	    add(separator_4);
-	    separator_5.setBounds(11, 168, 289, 2);
-	    
-	    add(separator_5);
-	    separator_6.setBounds(20, 221, 280, 2);
-	    
-	    add(separator_6);
-	    separator_7.setBounds(12, 273, 399, 2);
-	    
-	    add(separator_7);
+		JSeparator separator = new JSeparator();
+		separator.setBounds(110, 63, 1, 2);
+		add(separator);
+		separator_1.setBounds(12, 63, 289, 2);
+
+		add(separator_1);
+		separator_2.setBounds(12, 118, 394, 2);
+
+		add(separator_2);
+		separator_3.setBounds(12, 173, 288, -8);
+
+		add(separator_3);
+		separator_4.setBounds(7, 178, 293, -8);
+
+		add(separator_4);
+		separator_5.setBounds(11, 168, 289, 2);
+
+		add(separator_5);
+		separator_6.setBounds(20, 221, 280, 2);
+
+		add(separator_6);
+		separator_7.setBounds(12, 273, 399, 2);
+
+		add(separator_7);
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent e) {
+		Object source = e.getSource();
+		if (source == cancelButton) {
+			dispose();
+		} else if (source == addButton) {
+			createBook();
+			dispose();
 
+		}
 	}
-
+	
+	public void createBook(){
+	 Book b = new Book(titleField.getText(), authorField.getText(), priceField.getText(),
+			 publisherField.getText(), originField.getText(), stockField.getText());
+	 }
 }
